@@ -1,4 +1,9 @@
 
+![Logo](https://i.postimg.cc/6QF7cMcG/logo-greencare.png)
+
+
+
+
 # MicroBlog - GreenCare
 
 Una pequeña aplicacion tipo microblog sobre el cuidado de las plantas.
