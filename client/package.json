@@ -16,6 +16,7 @@
     "@heroicons/react": "^2.0.18",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "@react-oauth/google": "^0.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.5"
@@ -29,5 +30,17 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "vite": "^5.0.0"
-  }
+  },
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/No-Country/C15-16-n-node--react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/No-Country/C15-16-n-node--react/issues"
+  },
+  "homepage": "https://github.com/No-Country/C15-16-n-node--react#readme",
+  "description": ""
 }

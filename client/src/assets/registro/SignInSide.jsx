@@ -13,6 +13,11 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { GoogleLogin } from '@react-oauth/google';
+
+
+
+
 
 function Copyright(props) {
   return (
@@ -26,8 +31,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
@@ -122,22 +125,21 @@ export default function SignInSide() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 3 }}
               >
                 Registrate
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Olvidaste tu contraseña?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"No tienes una cuenta? Registrate"}
-                  </Link>
-                </Grid>
-              </Grid>
+              
+              <GoogleLogin
+                onSuccess={credentialResponse => {
+                  console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              
+              />
+              
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
