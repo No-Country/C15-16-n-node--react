@@ -52,13 +52,49 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const {
     User,
-    Profile
+    Profile,
+    Publication,
+    Like,
+    Posttag,
+    Hashtag,
+    Follower,
+    Comment
 } = sequelize.models;
 
 /////// ACA VIENEN LAS RELACIONES ///////
+
+
 //Usuario con Persona
 User.hasOne(Profile);
 Profile.belongsTo(User);
+
+//Usuario con Seguidor
+User.hasMany(Follower, { as: 'follower', foreignKey: 'followerId' });
+User.hasMany(Follower, { as: 'following', foreignKey: 'followingId' });
+
+//Usuario con Publicacion
+User.hasMany(Publication);
+Publication.belongsTo(User);
+
+//Usuario con Reaccion
+User.hasMany(Like);
+Like.belongsTo(User);
+
+//Publiacion con Comentario
+Publication.hasMany(Comment);
+Comment.belongsTo(Publication);
+
+//Publicacion con Reaccion
+Publication.hasMany(Like);
+Like.belongsTo(Publication);
+
+//Publicacion con Posttag
+Publication.hasMany(Posttag);
+Posttag.belongsTo(Publication);
+
+//Hashtag con Posttag
+Hashtag.hasMany(Posttag);
+Posttag.belongsTo(Hashtag);
 
 module.exports = {
   ...sequelize.models,
