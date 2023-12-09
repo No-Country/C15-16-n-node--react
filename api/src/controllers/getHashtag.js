@@ -1,7 +1,10 @@
 const { Hashtag } = require("../db");
 
 const getOrCreateHashtag = async (name_hashtag) => {
-  const hashtag = await Hashtag.findOne({ name: name_hashtag });
+
+  const hashtag = await Hashtag.findOne({
+    where: { name: name_hashtag }
+  });
 
   if (!hashtag) {
     const newHashtag = await Hashtag.create({

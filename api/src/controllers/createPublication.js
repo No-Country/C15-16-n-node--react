@@ -1,6 +1,8 @@
 const { Publication, User, Hashtag, Posttag } = require("../db");
 const getOrCreateHashtag = require("../controllers/getHashtag");
 
+//OJO CON EL HASHTAG manejar en caso "Girasol" vs "girasol"
+
 const createPublication = async (body, userId) => {
   const { text, images, video } = body;
 
@@ -16,7 +18,7 @@ const createPublication = async (body, userId) => {
     erased: false,
   });
 
-  const postAndHashtag = await Posttag.create({
+  await Posttag.create({
     hashtagId: hashtag?.dataValues.id,
     publicationId: newPublication?.dataValues.id,
   });
