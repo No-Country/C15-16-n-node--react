@@ -4,10 +4,17 @@ const handlerGetPublication = async(req, res)=>{
    
     try {
         const { pg } = req.params
-        console.log(pg)
+       // console.log(pg)
         const allPublications = await getAllPublications(pg)
-        console.log(allPublications)
-        res.status(200).json({message: "hola"})
+        //console.log(allPublications)
+        if(allPublications.length === 0){
+            res.status(200).json({pagination: pg, message: "No hay mas contenido"})
+        }
+        res.status(200).json(
+            {
+                pagination: pg,
+                publications : allPublications,
+            })
         
     } catch (error) {
         console.log(error.message)
