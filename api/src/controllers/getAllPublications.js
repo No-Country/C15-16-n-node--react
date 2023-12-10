@@ -11,6 +11,13 @@ const getAllPublications = async(pg)=>{
         where: {
             erased: false,
           },
+          include: [
+            {
+                model: User,
+                attributes: ['id','username','email']
+              }
+            ],
+            order: [['createdAt', 'DESC']],
           limit,
           offset,
           
@@ -18,11 +25,14 @@ const getAllPublications = async(pg)=>{
 
     //console.log(searchPublications)
     const publications = searchPublications.map(post=>{
-      //console.log(post?.dataValues.id)
+      //console.log(post?.dataValues.user)
       const createdAt = new Date(post?.dataValues.createdAt);
     const formattedDate = `${createdAt.getDate()}/${createdAt.getMonth() + 1}/${createdAt.getFullYear()}`;
       
       return {
+        username: post?.dataValues.user?.dataValues.username,
+        userId: post?.dataValues.user?.dataValues.id,
+        email: post?.dataValues.user?.dataValues.email,
         postId : post?.dataValues.id,
         text : post?.dataValues.text,
         images: post?.dataValues.images,
