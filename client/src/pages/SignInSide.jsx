@@ -129,7 +129,7 @@ export default function SignInSide() {
               >
                 Registrate
               </Button>
-              
+              <Grid align="center">
               <GoogleLogin
                 onSuccess={credentialResponse => {
                   console.log(credentialResponse);
@@ -139,7 +139,7 @@ export default function SignInSide() {
               }}
               
               />
-              
+              </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
