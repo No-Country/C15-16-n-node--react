@@ -1,19 +1,12 @@
-
-
-
-import SignInSide from './assets/registro/SignInSide'
-
+import React from 'react';
 
 function App() {
-  
-  
   return (
-    <>
-      <SignInSide />
-
-    
-    </>
-  )
+    <div>
+      <h1>Hola, mundo!</h1>
+      {/* Aquí puedes agregar otros componentes y contenido */}
+    </div>
+  );
 }
 
-export default App
+export default App;
