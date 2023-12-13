@@ -8,9 +8,10 @@ const handlerGetPublication = async(req, res)=>{
         const allPublications = await getAllPublications(pg)
         //console.log(allPublications)
         if(allPublications.length === 0){
-            res.status(200).json({pagination: pg, message: "No hay mas contenido"})
+            
+           return res.status(200).json({pagination: pg, message: "No hay mas contenido"})
         }
-        res.status(200).json(
+        return res.status(200).json(
             {
                 pagination: pg,
                 publications : allPublications,
@@ -18,7 +19,7 @@ const handlerGetPublication = async(req, res)=>{
         
     } catch (error) {
         console.log(error.message)
-        res.status(400).json({message : error.message})
+        return res.status(400).json({message : error.message})
     }
 }
 

@@ -17,15 +17,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         //allowNull: false,
       },
-      images_two: {
+      image_two: {
         type: DataTypes.STRING,
         //allowNull: false,
       },
-      images_three: {
+      image_three: {
         type: DataTypes.STRING,
         //allowNull: false,
       },
-      images_four: {
+      image_four: {
         type: DataTypes.STRING,
         //allowNull: false,
       },
