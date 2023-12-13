@@ -9,7 +9,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<FullWithLayout />}>
+      <Route path="/" element={<SignInSide />}>
         <Route index element={<Home />} />
         <Route path="/SignInSide" element={<SignInSide />} />
         <Route path="/SignUp" element={<SignUp />} />

@@ -1,31 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/system';
 
+const NotFoundContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100vh',
+});
+
+const NotFoundContent = styled('div')({
+  textAlign: 'center',
+});
 
 const NotFound = () => {
   return (
-    <section className="page_404">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 ">
-            <div className="col-sm-10 col-sm-offset-1  text-center">
-              <div className="four_zero_four_bg">
-                <h1 className="text-center ">404</h1>
-              </div>
-
-              <div className="contant_box_404">
-                <h3 className="h2">Look like you are lost</h3>
-
-                <p>the page you are looking for not avaible!</p>
-
-                <Link to="/" className="link_404">
+    <NotFoundContainer>
+      <Box component="div" className="container">
+        <Box component="div" className="row">
+          <Box component="div" className="col-sm-12">
+            <Box component="div" className="col-sm-10 col-sm-offset-1 text-center">
+              <Box component="div" className="four_zero_four_bg">
+                <Typography variant="h1">404</Typography>
+              </Box>
+              <Box component="div" className="contant_box_404">
+                <Typography variant="h3">Looks like you are lost</Typography>
+                <Typography variant="body1">
+                  The page you are looking for is not available!
+                </Typography>
+                <Button component={Link} to="/" variant="contained" color="primary">
                   Go to Home
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </NotFoundContainer>
   );
 };
 
