@@ -34,3 +34,4 @@ module.exports = (sequelize) => {
     { timestamps: true }
   );
 };
+//AGREGAR PHOTO Y QUITARLO DE PERFIL 

@@ -36,3 +36,8 @@ module.exports = (sequelize) => {
     }
   );
 };
+
+//AGREGAR NUMBER LIKES
+//AGREGAR NUMBER RE-POSTEO
+//AGREGAR NUMBER COMENTARIOS
+//DIVIDIR IMAGES 1, 2, 3, 4
