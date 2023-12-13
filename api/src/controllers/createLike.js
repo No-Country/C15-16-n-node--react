@@ -49,7 +49,7 @@ const createOrPutLike = async (userId, { active, postId }) => {
         time: formattedTime,
       }
     };
-
+         /// FALTA CORREGIR ABAJO!!!!!!!!!!!!!!!!!!
   } else {
     const updateLike = await searchLike.update({
       erased: !active,
