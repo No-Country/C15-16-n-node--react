@@ -13,7 +13,19 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         //allowNull: false,
       },
-      images: {
+      image_one: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      images_two: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      images_three: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      images_four: {
         type: DataTypes.STRING,
         //allowNull: false,
       },
@@ -30,6 +42,18 @@ module.exports = (sequelize) => {
         //allowNull: false,
         default: false
       },
+      number_of_likes: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      number_of_repost: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      number_of_comment: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
     },
     {
       timestamps: true,
@@ -37,7 +61,3 @@ module.exports = (sequelize) => {
   );
 };
 
-//AGREGAR NUMBER LIKES
-//AGREGAR NUMBER RE-POSTEO
-//AGREGAR NUMBER COMENTARIOS
-//DIVIDIR IMAGES 1, 2, 3, 4

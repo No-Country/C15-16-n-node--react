@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4, //revisar id
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
       first_name: {
@@ -14,10 +14,6 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       last_name: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      profile_photo: {
         type: DataTypes.STRING,
         allowNull: true,
       },

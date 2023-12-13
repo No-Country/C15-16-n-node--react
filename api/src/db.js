@@ -80,7 +80,10 @@ Publication.belongsTo(User);
 User.hasMany(Like);
 Like.belongsTo(User);
 
-// AGREGAR RELACION USER CON COMENTARIO
+//Usuario con comentario
+User.hasMany(Comment);
+Comment.belongsTo(User);
+
 //Publiacion con Comentario
 Publication.hasMany(Comment);
 Comment.belongsTo(Publication);
