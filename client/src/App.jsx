@@ -1,7 +1,8 @@
 
 
 
-import SignInSide from './assets/registro/SignInSide'
+import CommentList from './assets/componentes/comentarios'
+import UserProfile from './assets/componentes/editarPerfil'
 
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
   
   return (
     <>
-      <SignInSide />
+      <UserProfile />
+      <CommentList />
 
-    
     </>
   )
 }
