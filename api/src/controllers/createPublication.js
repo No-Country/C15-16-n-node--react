@@ -1,8 +1,10 @@
 const { Publication, User, Hashtag, Posttag } = require("../db");
 const getOrCreateHashtag = require("../controllers/getHashtag");
 
+//OJO CON EL HASHTAG manejar en caso "Girasol" vs "girasol"
+
 const createPublication = async (body, userId) => {
-  const { text, images, video } = body;
+  const { text, image_one, image_two, image_three, image_four, video } = body;
 
   if (body.hashtag) {
     var hashtag = await getOrCreateHashtag(body.hashtag);
@@ -10,26 +12,41 @@ const createPublication = async (body, userId) => {
 
   const newPublication = await Publication.create({
     text,
-    images,
+    image_one,
+    image_two,
+    image_three,
+    image_four,
     video,
     userId,
     erased: false,
+    number_of_likes: 0,
+    number_of_repost: 0,
+    number_of_comment: 0,
   });
 
-  const postAndHashtag = await Posttag.create({
+  await Posttag.create({
     hashtagId: hashtag?.dataValues.id,
     publicationId: newPublication?.dataValues.id,
   });
 
-  //console.log("24", newPublication)
-  //console.log("25", postAndHashtag)
+  const updatedAt = new Date(newPublication?.dataValues.updatedAt);
+  const formattedDate = `${updatedAt.getDate()}-${updatedAt.getMonth() + 1}-${updatedAt.getFullYear()}`;
+  const formattedTime = `${updatedAt.getHours()}:${String(updatedAt.getMinutes()).padStart(2, "0")}`;
 
   return {
     message: "¡Publicacion creada exitosamente!",
     post: newPublication?.dataValues.text,
-    images: newPublication?.dataValues.images,
+    image_one: newPublication?.dataValues.image_one,
+    image_two: newPublication?.dataValues.image_two,
+    image_three: newPublication?.dataValues.image_three,
+    image_four: newPublication?.dataValues.image_four,
     video: newPublication?.dataValues.video,
     hashtag: hashtag?.dataValues.name,
+    likes: newPublication?.dataValues.number_of_likes,
+    comments: newPublication?.dataValues.number_of_comment,
+    reposts: newPublication?.dataValues.number_of_repost,
+    data: formattedDate,
+    time: formattedTime,
   };
 };
 

@@ -4,20 +4,23 @@ const { KEY_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
 
 const handlerCreateUser = async (req, res) => {
-  const { email } = req.body;
+  
   try {
+    if(req.body.email)req.body.email = req.body.email.toLowerCase();
+    if(req.body.username)req.body.username = req.body.username.toLowerCase();
+    
     const newUser = await createUser(req.body);
 
     if (newUser) {
+      const { email,id, rol, erased } = newUser?.dataValues
       jwt.sign(
-        { email, id: newUser?.dataValues.id, rol: newUser?.dataValues.rol },
+        { email, id, rol, erased },
         KEY_SECRET,
         { expiresIn: "2d" },
         (err, token) => {
           res.status(200).json({
             message: "¡Usuario creado correctamente!",
             token: token,
-            erased: newUser?.dataValues.erased,
           });
         }
       );

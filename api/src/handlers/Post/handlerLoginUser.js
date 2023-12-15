@@ -3,9 +3,10 @@ const getUser = require("../../controllers/getUser");
 const generateToken = require("../../utils/generate");
 
 const handlerLogin = async (req, res) => {
-  const { email, password } = req.body;
   try {
-    const user = await getUser(email);
+    const { email, password } = req.body;
+    const emailLowerCase = email.toLowerCase();
+    const user = await getUser(emailLowerCase);
 
     if (password) {
       const validatePassword = await bcrypt.compare(
@@ -21,7 +22,6 @@ const handlerLogin = async (req, res) => {
           message: "¡Has ingresado correctamente!",
           token,
           rol,
-          erased,
         });
       } else {
         res.status(202).json({ message: "¡Credenciales incorrectas!" });

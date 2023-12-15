@@ -80,6 +80,10 @@ Publication.belongsTo(User);
 User.hasMany(Like);
 Like.belongsTo(User);
 
+//Usuario con comentario
+User.hasMany(Comment);
+Comment.belongsTo(User);
+
 //Publiacion con Comentario
 Publication.hasMany(Comment);
 Comment.belongsTo(Publication);

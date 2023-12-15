@@ -7,8 +7,12 @@ const createUser = async ({
   email,
   password,
   username,
+  profile_photo,
   first_name,
   last_name,
+  description,
+  location,
+  birthday,
 }) => {
   const user = await User.findOne({ where: { email: email } });
 
@@ -19,6 +23,7 @@ const createUser = async ({
   const newObjUser = {
     email,
     username,
+    profile_photo,
   };
 
   if (password !== undefined) {
@@ -37,6 +42,12 @@ const createUser = async ({
       userId: id,
       first_name,
       last_name,
+      description,
+      location,
+      birthday,
+      number_of_following : 0,
+      number_of_followers: 0
+
     });
   }
 

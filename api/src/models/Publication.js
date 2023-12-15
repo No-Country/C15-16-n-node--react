@@ -13,7 +13,19 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         //allowNull: false,
       },
-      images: {
+      image_one: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      image_two: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      image_three: {
+        type: DataTypes.STRING,
+        //allowNull: false,
+      },
+      image_four: {
         type: DataTypes.STRING,
         //allowNull: false,
       },
@@ -30,9 +42,22 @@ module.exports = (sequelize) => {
         //allowNull: false,
         default: false
       },
+      number_of_likes: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      number_of_repost: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      number_of_comment: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
     },
     {
       timestamps: true,
     }
   );
 };
+
