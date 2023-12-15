@@ -1,13 +1,21 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom';
+import Home from './pages/Home';
 
-function App() {
-  return (
-    <div>
-      <h1>Hola, mundo!</h1>
-      {/* Aquí puedes agregar otros componentes y contenido */}
-    </div>
-  );
-}
+
+const App = ()=> {
+  
+    return (
+      <Router>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      
+        
+        
+        </Routes>
+      </Router>
+      
+    );
+  }
+
 
 export default App;
