@@ -1,3 +1,4 @@
+<h1>Registro</h1>
 /*
 import React, { useState } from 'react';
 import { TextField, Button, Container } from '@material-ui/core';

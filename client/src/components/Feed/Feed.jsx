@@ -1,5 +1,7 @@
 
-import Header from './header';
+
+import Search from '../Search/Search';
+import Header from '../barra_header/Header';
 
 import {
   Card,
@@ -15,6 +17,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import CommentIcon from '@mui/icons-material/Comment';
 import PropTypes from 'prop-types';
+
+
 
 function FeedItem({ avatar, username, content, likes, comments, shares }) {
   return (
@@ -80,15 +84,18 @@ export default function Feed() {
       likes: 5,
       shares: 2,
     },
-    // Agregar más elementos de feed según sea necesario
+    
+    
   ];
 
   return (
     <Container>
-      <Header />
+      <Search />
+      
       {feedItems.map((item, index) => (
         <FeedItem key={index} {...item} />
       ))}
+      
     </Container>
   );
 }
