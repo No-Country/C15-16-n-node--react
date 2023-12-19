@@ -2,6 +2,7 @@
 
 import Search from '../Search/Search';
 import Header from '../barra_header/Header';
+import Comment from '../Comment/Comment';
 
 import {
   Card,
@@ -17,6 +18,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import CommentIcon from '@mui/icons-material/Comment';
 import PropTypes from 'prop-types';
+
 
 
 
@@ -91,7 +93,8 @@ export default function Feed() {
   return (
     <Container>
       <Search />
-      
+      <Header />
+      <Comment />
       {feedItems.map((item, index) => (
         <FeedItem key={index} {...item} />
       ))}
