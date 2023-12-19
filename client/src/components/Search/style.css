@@ -1,0 +1,28 @@
+.search {
+    align-items: center;
+    background-color: #0b624f05;
+    border-radius: 31px;
+    display: flex;
+    gap: 14px;
+    overflow: hidden;
+    padding: 0 24px;
+    position: relative;
+    width: 908px;
+}
+.search .search_instance{
+    height: 24px !important;
+    position: relative !important;  
+    width: 24px !important;
+}
+.search .text-wrapper{
+    color: #0b624fcc;
+    font-family: "segoe UI regular";
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: -1px;
+    position: relative;
+    width: 100%;
+    
+}

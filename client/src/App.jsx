@@ -1,19 +1,21 @@
+import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom';
+import Home from './pages/Home';
 
 
-
-import SignInSide from './assets/registro/SignInSide'
-
-
-function App() {
+const App = ()=> {
   
-  
-  return (
-    <>
-      <SignInSide />
+    return (
+      <Router>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      
+        
+        
+        </Routes>
+      </Router>
+      
+    );
+  }
 
-    
-    </>
-  )
-}
 
-export default App
+export default App;
