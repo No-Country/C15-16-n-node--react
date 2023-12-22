@@ -1,42 +1,271 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+
+.perfil{  
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.perfil-header{
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 25px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.perfil-header-2{
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.div-btn-perfil{
+  display: flex;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+.div-editable-perfil{
+  display: flex;
+  flex-direction: column;
 }
 
-.read-the-docs {
-  color: #888;
+.perfil-info{
+  margin: 20px;
+}
+
+.perfil-fecha-follow{
+  display: flex;
+  justify-content: space-between;
+}
+
+.perfil-fecha, .perfil-follow{
+  display: flex;
+}
+
+.p{
+  margin: 20px;
+  font-size: 12px;
+}
+
+
+.perfil-img{
+  border: 2px solid #0b6350;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.div-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editar-perfil-btn{
+  cursor: pointer;
+  border: 2px solid #0b6350;
+  color: #0b6350;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 20px;
+}
+
+.editar-perfil-btn:hover{
+  color: #89c877;
+  border: 2px solid #89c877;
+}
+
+h2{
+  font-size: 48px bold;
+}
+
+p{
+  font-size: 14px;
+}
+
+button{
+  font-size: 14px;
+}
+
+.barra-1{
+  margin: 1%;
+}
+
+.barra-1-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.barra-1-3{
+  display: flex;
+  width: 55%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flecha-barra1{
+  cursor: pointer;
+  color: #0b6350;
+}
+
+.linea-barra{
+  border: 1px solid #Ebf4e9;
+  width: 65%;
+  margin: 5px;
+}
+
+.icono-lupa{
+  cursor: pointer;
+  margin: 0 10px 0 5px;
+  color: #0b6350;
+}
+
+.barra-buscador{
+  display: flex;
+  width: 70%;
+  border: 1px solid #Ebf4e9;
+  background-color: #Ebf4e9;
+  border-radius: 20px;
+  padding: 10px 5px;
+  margin: 5px;
+}
+
+.barra-2{
+  margin: 1%;
+}
+
+.barra-2-2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barra-2-3{
+  display: block;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.barra-2-p{
+  margin: 1% 0;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.publicacion{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: -80px;
+}
+
+.info-usuario-publicacion{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.div-left-info-usuario-publicacion{
+  display: flex;
+  align-items: center;
+  width: 25%;
+  justify-content: space-evenly;
+}
+
+.puntos-info-usuario-publicacion{
+  display: flex;
+  align-items: center;
+}
+
+.img-usuario-publicacion{
+  width: 50px;
+  height: 50px;
+  border: 2px solid #0b6350;
+  border-radius: 50%;
+}
+
+.img-opciones-publicacion{
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  justify-content: center;
+}
+
+.flechas-img-publicacion{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.flechas-publicacion{
+  margin: 20px;
+}
+
+.img-publicacion{
+  border: 2px solid #0b6350;
+  width: 400px;
+  height: 400px;
+}
+
+.opciones-publiacion-contenedor{
+  display: flex;
+  justify-content: center;
+}
+
+.opciones-publiacion{
+  display: flex;
+  justify-content: space-around;  
+  width: 400px;
+}
+
+
+
+
+
+
+.textarea-perfil {
+  height: 1%;
+  width: 90%;
+  resize: none;
+}
+
+.btn-editar-perfil{
+  cursor: pointer;
+  border: 2px solid #0b6350;
+  color: #0b6350;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 20px;
+  margin: 5px;
+}
+
+.input-perfil{
+  margin: 5px;
+  border: 2px solid #0b6350;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 20px;
+}
+
+.img-perfil{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 5px;
+  object-fit: cover;
+}
+
+.text-perfil{
+  color: #0b6350;
+  font-weight: bold;
+}
+
+.input-comentario{
+  margin: 15px;
 }
