@@ -15,7 +15,8 @@ Las personas que tienen dificultades para cuidar sus plantas suelen enfrentarse 
 
 ■ Falta de recordatorios para regar o abonar las plantas.
 
-> **Nota:** Casos de pruebas: https://docs.google.com/spreadsheets/d/1HbELQkOUkcx-SZfwa7nvazydRQoTIdxN/edit#gid=1982313070.
+> **Nota:** Test Sets: https://docs.google.com/spreadsheets/d/1fSV2Npr-zwWlMAGX2LEuFk0Vt3fRpsZ6/edit#gid=1982313070.
+> **Nota:** Executed cases: https://docs.google.com/spreadsheets/d/1-ZLQ_fzfa2tVlwB8dYhpNNwlz5J7biXj/edit#gid=1982313070.
 
 
 
