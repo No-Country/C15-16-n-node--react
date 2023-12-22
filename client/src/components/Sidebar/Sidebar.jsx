@@ -1,4 +1,5 @@
-import * as React from 'react';
+
+import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -7,7 +8,6 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -20,7 +20,9 @@ import ListItemText from '@mui/material/ListItemText';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import FeedIcon from '@mui/icons-material/Feed';
-
+import { Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 const drawerWidth = 240;
 
@@ -32,13 +34,13 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: `-${drawerWidth}px`,
+    marginLeft: 0,
     ...(open && {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: 0,
+      marginLeft: drawerWidth,
     }),
   }),
 );
@@ -50,9 +52,10 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  background: `rgba(11, 99, 80, 0.65)`,
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
+    marginLeft: drawerWidth,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -64,7 +67,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
@@ -95,9 +97,11 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            GreenCare
+          <Typography variant="h6" noWrap component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+          <img src={logo} alt="Logo" style={{ width: '100px', marginRight: '10px' }} />
+          
           </Typography>
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -109,9 +113,10 @@ export default function SideBar() {
             boxSizing: 'border-box',
           },
         }}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
         open={open}
+        onClose={handleDrawerClose}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -122,25 +127,22 @@ export default function SideBar() {
         <List>
           {['Inicio', 'Notificaciones', 'Perfil', 'Noticias'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
-          <ListItemIcon>
-            {index === 0 ? <HomeIcon/> : 
-            index === 1 ? <NotificationsIcon /> :
-            index === 2 ? <PersonIcon /> :
-            index === 3 ? <FeedIcon /> : null }
-          </ListItemIcon>
+              <ListItemButton component={Link} to={index === 3 ? '/noticias' : '/'}>
+                <ListItemIcon>
+                  {index === 0 ? <HomeIcon /> :
+                    index === 1 ? <NotificationsIcon /> :
+                      index === 2 ? <PersonIcon /> :
+                        index === 3 ? <FeedIcon /> : null}
+                </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-      
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        
-        
       </Main>
     </Box>
   );

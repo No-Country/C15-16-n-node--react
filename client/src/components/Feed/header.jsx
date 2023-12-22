@@ -11,6 +11,7 @@ import {
   styled,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 
 
 const AppBarStyled = styled(AppBar)({
@@ -51,12 +52,18 @@ const Header = () => {
         
       </Toolbar>
       <Box display="flex" justifyContent="center">
-          <Button color="inherit">Publicaciones</Button>
-          <Divider orientation="vertical" flexItem />
-          <Button color="inherit">Etiquetas</Button>
-          <Divider orientation="vertical" flexItem />
-          <Button color="inherit">Noticias</Button>
-        </Box>
+      <Button color="inherit" component={Link} to="/publicaciones">
+        Publicaciones
+      </Button>
+      <Divider orientation="vertical" flexItem />
+      <Button color="inherit" component={Link} to="/etiquetas">
+        Etiquetas
+      </Button>
+      <Divider orientation="vertical" flexItem />
+      <Button color="inherit" component={Link} to="/news">
+        Noticias
+      </Button>
+    </Box>
     </AppBarStyled>
     
   );

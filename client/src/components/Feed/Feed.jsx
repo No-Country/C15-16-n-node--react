@@ -1,104 +1,81 @@
-
-
-import Search from '../Search/Search';
-import Header from '../barra_header/Header';
-import Comment from '../Comment/Comment';
+import {useState}from 'react';
 
 import {
   Card,
   CardContent,
-  Typography,
+  CardHeader,
   Avatar,
   IconButton,
+  Typography,
   CardActions,
-  Divider,
-  Container,
+  Box,
+  Stack,
 } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import CommentIcon from '@mui/icons-material/Comment';
-import PropTypes from 'prop-types';
+import {
+  Comment as CommentIcon,
+  Repeat as RepeatIcon,
+  Favorite as FavoriteIcon,
+  Delete as DeleteIcon,
+  Bookmark as BookmarkIcon,
+} from '@mui/icons-material';
 
+  const FeedItem = () => {
+  const [like, setLike] = useState(false);
+  const colorLike = like ? '#0B6350' : '##fb0061';
+  const favorite =() => {
+    if (like) {
+      setLike(false);
+    } else {
+      setLike(true);
+    }
+  }
 
-
-
-function FeedItem({ avatar, username, content, likes, comments, shares }) {
   return (
-    <Card style={{ marginBottom: '16px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
-        <Avatar src={avatar} alt={username} />
-        <Typography variant="subtitle1" component="span" style={{ marginLeft: '8px' }}>
-          {username}
-        </Typography>
-      </div>
+    <Card>
+      <CardHeader
+        avatar={<Avatar src="../../assets/perfil1.png" alt="User Avatar" />}
+        title="Username"
+        subheader="2h ago" 
+      />
       <CardContent>
-        <Typography style={{ marginBottom: '8px' }}>{content}</Typography>
+        <Typography variant="body1">
+          Contenido del comentario. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Typography>
       </CardContent>
-      <Divider />
-      <CardActions style={{ justifyContent: 'flex-end' }}>
-        <IconButton color="primary">
-          <FavoriteIcon />
-        </IconButton>
-        <Typography variant="caption" component="span">
-          {likes}
-        </Typography>
-        <IconButton color="primary">
-          <CommentIcon />
-        </IconButton>
-        <Typography variant="caption" component="span">
-          {comments}
-        </Typography>
-        <IconButton color="primary">
-          <ShareIcon />
-        </IconButton>
-        <Typography variant="caption" component="span">
-          {shares}
-        </Typography>
+      <CardActions>
+        <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between" sx={{ width: '100%' }} color="##0B6350">
+          <IconButton>
+            <CommentIcon />
+            <Typography>10</Typography>
+          </IconButton>
+          <IconButton>
+            <RepeatIcon />
+            <Typography>20</Typography>
+          </IconButton>
+          <IconButton>
+            <FavoriteIcon />
+            <Typography>30</Typography>
+          </IconButton>
+          <IconButton>
+            <DeleteIcon />
+          </IconButton>
+          <IconButton>
+            <BookmarkIcon />
+          </IconButton>
+        </Stack>
       </CardActions>
     </Card>
   );
-}
-
-FeedItem.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired,
-  comments: PropTypes.number.isRequired,
-  shares: PropTypes.number.isRequired,
 };
 
-export default function Feed() {
-  const feedItems = [
-    {
-      avatar: 'https://example.com/avatar1.jpg',
-      username: 'User1',
-      content: 'This is the first tweet.',
-      comments: 3,
-      likes: 10,
-      shares: 5,
-    },
-    {
-      avatar: 'https://example.com/avatar2.jpg',
-      username: 'User2',
-      content: 'This is the second tweet.',
-      comments: 1,
-      likes: 5,
-      shares: 2,
-    },
-    
-    
-  ];
 
+
+const FeedItemBox = () => {
   return (
-    <Container>
-      <Search />
-      <Header />
-      <Comment />
-      {feedItems.map((item, index) => (
-        <FeedItem key={index} {...item} />
-      ))}
-      
-    </Container>
+    <Box sx={{ width: '80%', maxWidth: '884px', margin: '40px auto' }}>
+      <FeedItem />
+    </Box>
   );
-}
+};
+
+export default FeedItemBox;
